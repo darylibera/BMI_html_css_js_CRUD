@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <section
+        style="height: 100vh"
+        class="d-flex justify-content-center align-items-center bg-dark px-3 py-5"
+      >
+        <article
+          class="card border-0 shadow-lg rounded-4 bg-black text-white"
+          style="max-width: 500px; width: 100%"
+        >
+          <div class="card-body text-center pt-4">
+            <h6
+              class="badge rounded-pill bg-warning text-black fw-bold px-3 py-2 mb-3 fw-bolder"
+            >
+              HEALTH CALCULATOR
+            </h6>
+
+            <h1 class="fw-bold mb-2">BMI Calculator</h1>
+            <p class="mb-0 mt-3">
+              Calculate Your Body Mass Index &amp; Check Your Current Weight
+              Category.
+            </p>
+          </div>
+
+          <form class="px-4 px-md-5 pb-4">
+            <div class="mb-4">
+              <label for="height" class="form-label fw-semibold">
+                Height
+              </label>
+
+              <div class="input-group input-group-lg">
+                <input
+                  type="number"
+                  id="height"
+                  class="form-control rounded-start-pill border-black"
+                  placeholder="Enter Your Height"
+                  required
+                />
+
+                <span
+                  class="input-group-text fw-semibold bg-black bg-gradient text-white rounded-end-pill border-black"
+                >
+                  cm
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="weight" class="form-label fw-semibold">
+                Weight
+              </label>
+
+              <div class="input-group input-group-lg">
+                <input
+                  type="number"
+                  id="weight"
+                  class="form-control border rounded-start-pill border-black"
+                  placeholder="Enter Your Weight"
+                  required
+                />
+
+                <span
+                  class="input-group-text fw-semibold bg-black bg-gradient text-white rounded-end-pill border-black"
+                >
+                  kg
+                </span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onclick="onCalculateBtnClick()"
+              id="calculateBtn"
+              class="btn btn-outline-success btn-lg w-100 fw-bold py-3"
+            >
+              CALCULATE BMI
+            </button>
+          </form>
+          <div
+            class="mx-2 mx-sm-3 mx-lg-5 mb-4 p-3 bg-dark bg-gradient rounded-4 text-center border-black text-white d-flex justify-content-evenly align-items-center"
+          >
+            <button
+              onclick="onDeleteBtnClick()"
+              class="btn btn-outline-danger w-25 p-1 py-sm-2"
+            >
+              Delete
+            </button>
+            <div>
+              <h3 class="fs-6 mb-1 fw-bolder">YOUR BMI</h3>
+
+              <div class="fw-bold text-success lh-1 mb-3">
+                <span id="bmiStatus">---</span>
+              </div>
+
+              <div>
+                <span
+                  id="bmiCategory"
+                  class="badge rounded-pill text-bg-success px-3 py-2"
+                >
+                  Enter your details
+                </span>
+              </div>
+            </div>
+            <button
+              onclick="onEditBtnClick()"
+              class="btn btn-outline-warning w-25 p-1 py-sm-2"
+            >
+              Edit
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+  <script src="./script.js"></script>
+</html>
