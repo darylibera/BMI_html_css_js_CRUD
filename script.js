@@ -2,6 +2,10 @@ const onCalculateBtnClick = () => {
   try {
     let height = document.getElementById("height").value;
     let weight = document.getElementById("weight").value;
+    if (!height || !weight || height<=0 || weight<=0) {
+      alert("Enter valid height and weight");
+      return;
+    }
 
     let obj = { height, weight };
     let jsonObj = JSON.stringify(obj);
@@ -20,14 +24,12 @@ const calculate = () => {
     let data = localStorage.getItem("data");
     data = JSON.parse(data);
 
-    let bmiValue = 0;
     let heightValue = data.height;
-    let weightVlaue = data.weight;
+    let weightValue = data.weight;
 
     heightValue /= 100;
     heightValue **= 2;
-    bmiValue = weightVlaue / heightValue;
-    if (weightVlaue != "" && heightValue != "") {
+    let bmiValue = weightValue / heightValue;
       if (bmiValue < 18.5) {
         document.getElementById("bmiCategory").innerText = "Underweight";
         document.getElementById("bmiStatus").innerText = bmiValue.toFixed(1);
@@ -46,16 +48,11 @@ const calculate = () => {
       } else {
         document.getElementById("bmiCategory").innerText = "Obesity";
         document.getElementById("bmiStatus").innerText = bmiValue.toFixed(1);
-        document.getElementById("bmiCategory").className =
-          "badge rounded-pill bg-danger px-3 py-2";
+        document.getElementById("bmiCategory").className ="badge rounded-pill bg-danger px-3 py-2";
       }
-      document.getElementById("calculateBtn").innerText = "CALCULATE BMI";
-      document.getElementById("calculateBtn").className =
-        "btn btn-outline-success btn-lg w-100 fw-bold py-3";
-
-      alert("Stored Successfully");
+     
       clearField();
-    }
+
   } catch (error) {
     console.log(error);
   }
@@ -65,6 +62,9 @@ const clearField = () => {
   try {
     document.getElementById("height").value = "";
     document.getElementById("weight").value = "";
+    document.getElementById("calculateBtn").innerText = "CALCULATE BMI";
+    document.getElementById("calculateBtn").className ="btn btn-outline-success btn-lg w-100 fw-bold py-3";
+
   } catch (error) {
     console.log(error);
   }
